@@ -40,6 +40,18 @@
 						</ul>
                         <!-- /.nav-second-level -->
 					</li>
+					<li>
+                    	<a href="#"><i class="fa fa-clock-o"></i><span class="margin-left-5">View Scheduled Jobs</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                        	<li>
+                            	<a data-href="scheduledmasterjob" class="linkclick scheduledmasterjob"><i class="fa fa-clock-o"></i><span class="margin-left-5">View Scheduled Master Jobs</span></a>
+                            </li>
+                            <li>
+                            	<a data-href="scheduledjobs" class="linkclick scheduledjobs"><i class="fa fa-clock-o"></i><span class="margin-left-5">View Scheduled Jobs</span></a>
+                            </li>
+						</ul>
+                        <!-- /.nav-second-level -->
+					</li>
 	            </ul>
 	    	</div>
 	    	<!-- /.sidebar-collapse -->

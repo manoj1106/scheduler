@@ -15,6 +15,19 @@ $(function() {
 });
 
 schedulerfunctions.cleanup = function() {
+	$('#side-menu').off('click').on('click',function(){
+		$(this).find('li').each(function(){
+			var a = $(this).find('a.active');
+			$(a).each(function(){
+				if($(this).hasClass('active')) {
+					$(this).removeClass('active');
+				}
+			});
+			if($(this).hasClass('active')) {
+				$(this).removeClass('active');
+			}
+		});
+	});
 	$('#messageId').text('');
 }
 
