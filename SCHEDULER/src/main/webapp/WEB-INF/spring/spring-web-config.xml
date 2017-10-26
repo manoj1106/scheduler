@@ -1,0 +1,38 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="prefix" value="/WEB-INF/web/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<!-- java scripts mappings -->
+	<mvc:resources location="/WEB-INF/web/static/js/" mapping="/js/**"/>
+	<mvc:resources location="/WEB-INF/web/static/js/sb-admin/" mapping="/js/sb-admin/**"/>
+	<mvc:resources location="/WEB-INF/web/static/js/scheduler/" mapping="/js/scheduler/**"/>
+	<mvc:resources location="/WEB-INF/web/static/js/bootstrap/" mapping="/js/bootstrap/**"/>
+	<mvc:resources location="/WEB-INF/web/static/js/jquery/" mapping="/js/jquery/**"/>
+	<mvc:resources location="/WEB-INF/web/static/js/notify/" mapping="/js/notify/**"/>
+	
+	<!-- css mappings -->
+	<mvc:resources location="/WEB-INF/web/static/css/" mapping="/css/**"/>
+	<mvc:resources location="/WEB-INF/web/static/css/sb-admin/" mapping="/css/sb-admin/**"/>
+	<mvc:resources location="/WEB-INF/web/static/css/scheduler/" mapping="/css/scheduler/**"/>
+	<mvc:resources location="/WEB-INF/web/static/css/fonts/" mapping="/css/fonts/**"/>
+	<mvc:resources location="/WEB-INF/web/static/css/bootstrap/" mapping="/css/bootstrap/**"/>
+	<mvc:resources location="/WEB-INF/web/static/css/jquery/" mapping="/css/jquery/**"/>
+	
+	<!-- images mappings -->
+	<mvc:resources location="/WEB-INF/web/static/images/" mapping="/images/**"/>
+	
+	<!-- font mappings -->
+	<mvc:resources location="/WEB-INF/web/static/font/" mapping="/font/**"/>
+	
+</beans>

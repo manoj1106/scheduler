@@ -1,0 +1,50 @@
+ext {
+	project_Name 			= project.name
+	spring_Version			= '4.3.12.RELEASE'
+	spring_security_Version	= '4.2.3.RELEASE'
+	jackson_Version			= '2.9.2'
+	hibernate_Version		= '5.2.11.Final'
+	commons_lang_Version	= '3.6'
+	postgresql_Version		= '42.1.4'
+	servlet_Version			= '4.0.0'
+	jsp_api_Version			= '2.3.1'
+	jstl_Version			= '1.2'
+	slf4j_Version			= '1.7.25'
+	logback_ch_Version		= '1.2.3'
+}
+
+apply plugin: 'war'
+apply plugin: 'java'
+
+repositories {
+	mavenCentral()
+}
+
+war {
+	baseName = project_Name
+}
+
+dependencies {
+	//spring dependency
+	compile group: 'org.springframework', name: 'spring-webmvc', version: spring_Version
+	compile group: 'org.springframework', name: 'spring-orm', version: spring_Version
+	compile group: 'org.springframework', name: 'spring-jms', version: spring_Version
+	//spring security version
+	compile group: 'org.springframework.security', name: 'spring-security-web', version: spring_security_Version
+	compile group: 'org.springframework.security', name: 'spring-security-config', version: spring_security_Version
+	//jackson dependency
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: jackson_Version
+	//hibernate dependency
+	compile group: 'org.hibernate', name: 'hibernate-core', version: hibernate_Version
+	//apache commons dependency
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: commons_lang_Version
+	//javax servlet dependency
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: servlet_Version
+	compile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: jsp_api_Version
+	compile group: 'jstl', name: 'jstl', version: jstl_Version
+	//database dependency
+    compile group: 'org.postgresql', name: 'postgresql', version: postgresql_Version
+    //logging dependency
+    compile group: 'org.slf4j', name: 'slf4j-api', version: slf4j_Version
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: logback_ch_Version
+}

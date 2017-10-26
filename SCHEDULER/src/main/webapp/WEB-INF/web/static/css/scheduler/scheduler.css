@@ -1,0 +1,15 @@
+.margin-left-5 {
+	margin-left: 5px !important;
+}
+
+.mandat {
+	color: red;
+}
+
+.success {
+	color: green;
+}
+
+.error {
+	color: red;
+}

@@ -1,0 +1,1 @@
+insert into scheduler_db.user_login (ul_user_name,ul_password,ul_role,ul_user_full_name) values ('H50S2SA','manoj','ADMIN','Manoj Patel');
