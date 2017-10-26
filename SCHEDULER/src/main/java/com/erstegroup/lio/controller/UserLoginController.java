@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.erstegroup.lio.constants.ControllerUrlConstants;
 import com.erstegroup.lio.constants.JspNamesConstants;
 import com.erstegroup.lio.service.UserService;
+import com.erstegroup.lio.utils.SessionUtil;
 
 @Controller
 public class UserLoginController {
@@ -41,6 +42,7 @@ public class UserLoginController {
 			model.addObject("error", "Invalid username and password!");
 		}
 		if (logout != null) {
+			SessionUtil.removeUserOnLogout(request);
 			log.debug("user is logged out from the system.");
 			request.getSession().invalidate();
 			model.addObject("msg", "You've been logged out successfully.");

@@ -90,6 +90,7 @@ schedulerfunctions.printSuccessErrorMessage = function(response) {
 schedulerfunctions.printNotificationMessage = function(message,type) {
 	$('#messageId').text('');
 	$('#messageId').text(message);
+	$("#messageId").attr('class', '');
 	$('#messageId').addClass(type);
 };
 
