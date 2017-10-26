@@ -3,6 +3,7 @@ package com.erstegroup.lio.constants;
 public class CommonConstants {
 
 	public static final String SPACE = " ";
+	public static final String EMPTY = "";
 	
 	public static final String SUCCESS = "success";
 	public static final String ERROR = "error";
