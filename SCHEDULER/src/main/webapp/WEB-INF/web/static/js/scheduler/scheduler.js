@@ -27,8 +27,8 @@ schedulerfunctions.cleanup = function() {
 				$(this).removeClass('active');
 			}
 		});
+		$('#messageId').text('');
 	});
-	$('#messageId').text('');
 }
 
 schedulerfunctions.loadJspPages = function() {
@@ -41,6 +41,7 @@ schedulerfunctions.loadJspPages = function() {
 		} else if($(this).hasClass('jobschedule')) {
 			pageHeading = constants.pageHeading.jobSchedule;
 		}
+		$('#messageId').text('');
 		$('#parentarea').empty();
 		$('#parentarea').load(url);
 		$('#page-header').text(pageHeading);

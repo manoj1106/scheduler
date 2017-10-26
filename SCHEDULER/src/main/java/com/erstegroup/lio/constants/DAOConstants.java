@@ -8,6 +8,8 @@ public class DAOConstants {
 	public static final String USER_NAME = "userName";
 	public static final String SCH_JOBGROUP_NAME = "schJobGroupName";
 	
+	public static final String  DELETED_ON_HQL = " deletedOn is null";
+	
 	private DAOConstants() {
 		
 	}

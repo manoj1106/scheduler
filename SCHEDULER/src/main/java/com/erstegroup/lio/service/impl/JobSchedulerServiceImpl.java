@@ -1,5 +1,6 @@
 package com.erstegroup.lio.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -52,6 +53,27 @@ public class JobSchedulerServiceImpl implements JobSchedulerService {
 			} else {
 				dataMap.put(CommonConstants.ERROR, MessagesReader.getMessage(ServiceConstants.JOBGROUP_NAME_EXISTS));
 			}
+		} catch(SchedulerException e) {
+			log.error("exception occurred while saving job group in database..");
+			dataMap.put(CommonConstants.ERROR, MessagesReader.getMessage(ServiceConstants.JOBGROUP_NAME_CREATION_ERROR));
+		} catch(Exception e) {
+			log.error("exception occurred while saving job group in database.." , e);
+			dataMap.put(CommonConstants.ERROR, MessagesReader.getMessage(ServiceConstants.JOBGROUP_NAME_CREATION_ERROR));
+		}
+		responseEntity.setDataMap(dataMap);
+		return responseEntity;
+	}
+
+	@Override
+	@Transactional
+	public ResponseEntity getJobGroupNames(Map<String, Object> params) {
+		log.debug("getting the job group names");
+		ResponseEntity responseEntity = ResponseEntity.newInstance();
+		Map<String,Object> dataMap = ObjectFactory.getMap();
+		List<String> jobGroupNames = null;
+		try {
+			jobGroupNames = jobSchedulerDAO.getJobGroupNames();
+			dataMap.put(ServiceConstants.JOBGROUP_NAMES, jobGroupNames);
 		} catch(SchedulerException e) {
 			log.error("exception occurred while saving job group in database..");
 			dataMap.put(CommonConstants.ERROR, MessagesReader.getMessage(ServiceConstants.JOBGROUP_NAME_CREATION_ERROR));

@@ -12,7 +12,9 @@ public class SessionUtil {
 	private static final Map<String,Object> loggedInUserMap = ObjectFactory.getConcurrentMap();
 	
 	public static void setUserDetail(UserDTO userDTO, HttpServletRequest request) {
-		SessionUtil.loggedInUserMap.put(userDTO.getUserName(), userDTO.getUserName());
+		if(null == SessionUtil.getLoggedInUserMap().get(userDTO.getUserName())) {
+			SessionUtil.loggedInUserMap.put(userDTO.getUserName(), userDTO.getUserName());
+		}
 		request.getSession().setAttribute(CommonConstants.USER_INFO, userDTO);
 	}
 	
@@ -26,7 +28,10 @@ public class SessionUtil {
 	
 	public static void removeUserOnLogout(HttpServletRequest request) {
 		UserDTO userDTO = (UserDTO)request.getSession().getAttribute(CommonConstants.USER_INFO);
-		SessionUtil.loggedInUserMap.remove(userDTO.getUserName());
+		if(null != userDTO && null != SessionUtil.getLoggedInUserMap().get(userDTO.getUserName())) {
+			SessionUtil.loggedInUserMap.remove(userDTO.getUserName());
+		}
+		
 	}
 	
 }

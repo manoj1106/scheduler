@@ -1,5 +1,7 @@
 package com.erstegroup.lio.dao.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -15,6 +17,7 @@ import com.erstegroup.lio.dao.JobSchedulerDAO;
 import com.erstegroup.lio.db.model.SchedulerJobGroup;
 import com.erstegroup.lio.enums.ErrorCodes;
 import com.erstegroup.lio.exception.SchedulerException;
+import com.erstegroup.lio.utils.SchedulerUtil;
 
 @Repository
 public class JobSchedulerDAOImpl implements JobSchedulerDAO {
@@ -57,6 +60,24 @@ public class JobSchedulerDAOImpl implements JobSchedulerDAO {
 		}
 		log.debug("SchedulerJobGroup saved in the database. JobGroupName id created is {}" , schedulerJobGroup.getSchJobGroupId());
 		return schedulerJobGroup.getSchJobGroupId();
+	}
+	
+	@Override
+	public List<String> getJobGroupNames() {
+		log.debug("getting the job group names from database.");
+		List<String> jobGroupNames = null;
+		Session session = entityManager.unwrap(Session.class);
+		String hql = null;
+		try {
+			hql = SchedulerUtil.join("select schJobGroupName from SchedulerJobGroup where " , DAOConstants.DELETED_ON_HQL , " order by schJobGroupName asc");
+			Query<String> query = session.createQuery(hql , String.class);
+			jobGroupNames = query.list();
+		} catch(HibernateException e) {
+			log.error("exception occurred while retrieving data from database",e);
+			throw new SchedulerException(ErrorCodes.HIBERNATE_EXCEPTION);
+		}
+		log.debug("returning the job group names from database.");
+		return jobGroupNames;
 	}
 	
 }

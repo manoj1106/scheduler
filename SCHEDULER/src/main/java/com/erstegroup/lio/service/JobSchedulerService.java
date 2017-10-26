@@ -9,4 +9,6 @@ public interface JobSchedulerService {
 
 	public ResponseEntity createJobGroupName(JobSchedulerDTO jobSchedulerDTO,Map<String,Object> params);
 
+	public ResponseEntity getJobGroupNames(Map<String, Object> params);
+
 }

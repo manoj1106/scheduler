@@ -34,19 +34,24 @@ public class UserLoginController {
 	}
 	
 	@GetMapping(ControllerUrlConstants.LOGIN_URL)
-	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
-			@RequestParam(value = "logout", required = false) String logout,HttpServletRequest request) {
+	public ModelAndView login(@RequestParam(value = "error", required = false) String error,HttpServletRequest request) {
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
 			log.debug("error while logging in. invailid username and password.");
 			model.addObject("error", "Invalid username and password!");
 		}
-		if (logout != null) {
-			SessionUtil.removeUserOnLogout(request);
-			log.debug("user is logged out from the system.");
-			request.getSession().invalidate();
-			model.addObject("msg", "You've been logged out successfully.");
-		}
+		model.setViewName(JspNamesConstants.LOGIN_JSP);
+		return model;
+
+	}
+	
+	@GetMapping(ControllerUrlConstants.LOGOUT_URL)
+	public ModelAndView logout(HttpServletRequest request) {
+		log.debug("user is logged out from the system.");
+		ModelAndView model = new ModelAndView();
+		SessionUtil.removeUserOnLogout(request);
+		request.getSession().invalidate();
+		model.addObject("msg", "You've been logged out successfully.");
 		model.setViewName(JspNamesConstants.LOGIN_JSP);
 		return model;
 

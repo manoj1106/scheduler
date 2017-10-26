@@ -13,3 +13,7 @@
 .error {
 	color: red;
 }
+
+#parentarea {
+	heigth: 100%!important;
+}

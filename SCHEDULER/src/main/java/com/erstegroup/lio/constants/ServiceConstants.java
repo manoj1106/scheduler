@@ -11,6 +11,7 @@ public class ServiceConstants {
 	public static final String JOBGROUP_NAME_CREATED = "JobSchedulerServiceImpl.JobGroupNameCreated";
 	public static final String JOBGROUP_NAME_EXISTS = "JobSchedulerServiceImpl.JobGroupNameExists";
 	public static final String JOBGROUP_NAME_CREATION_ERROR = "JobSchedulerServiceImpl.JobGroupNameCreationError";
+	public static final String JOBGROUP_NAMES = "jobGroupNames";
 	
 	private ServiceConstants() {
 		

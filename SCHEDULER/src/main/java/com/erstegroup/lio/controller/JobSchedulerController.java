@@ -32,14 +32,14 @@ public class JobSchedulerController {
 	public ModelAndView getJobGroup(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView();
 		model.setViewName(JspNamesConstants.JOB_SCHEDULE_JSP);
-		model.addObject(ControllerUrlConstants.JOB_GROUP_URL, ControllerUrlConstants.JOB_GROUP_URL);
+		model.addObject(ControllerUrlConstants.JOB_SCHEDULER_URL, ControllerUrlConstants.JOB_GROUP_URL);
 		return model;
 	}
 	
 	@GetMapping(ControllerUrlConstants.JOB_SCHEDULE_URL)
 	public ModelAndView getJobSchedule(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView();
-		model.addObject(ControllerUrlConstants.JOB_SCHEDULE_URL, ControllerUrlConstants.JOB_SCHEDULE_URL);
+		model.addObject(ControllerUrlConstants.JOB_SCHEDULER_URL, ControllerUrlConstants.JOB_SCHEDULE_URL);
 		model.setViewName(JspNamesConstants.JOB_SCHEDULE_JSP);
 		return model;
 	}
@@ -52,5 +52,15 @@ public class JobSchedulerController {
 		ResponseEntity responseEntity = jobSchedulerService.createJobGroupName(jobSchedulerDTO, params);
 		return responseEntity;
 	}
+	
+	@PostMapping(ControllerUrlConstants.GET_JOB_GROUP_NAMES)
+	@ResponseBody
+	public ResponseEntity getJobGroupNames(HttpServletRequest request) {
+		Map<String,Object> params = ObjectFactory.getMap();
+		ResponseEntity responseEntity = jobSchedulerService.getJobGroupNames(params);
+		return responseEntity;
+	}
+	
+	
 	
 }

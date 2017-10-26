@@ -32,7 +32,7 @@
                     	<a href="#"><i class="fa fa-clock-o"></i><span class="margin-left-5">Scheduling</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                         	<li>
-                            	<a data-href="jobgroup" class="linkclick jobgroup"><i class="fa fa-clock-o"></i><span class="margin-left-5">Job Group</span></a>
+                            	<a data-href="jobgroup" class="linkclick jobgroup"><i class="fa fa-cubes"></i><span class="margin-left-5">Job Group</span></a>
                             </li>
                             <li>
                             	<a data-href="jobschedule" class="linkclick jobschedule"><i class="fa fa-clock-o"></i><span class="margin-left-5">Job Scheduling</span></a>

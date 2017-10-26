@@ -11,3 +11,7 @@ schedulerutil.isNotBlank = function(input) {
 schedulerutil.isNullOrUndefined = function(input) {
 	return (undefined === input || null === input);
 }
+
+schedulerutil.isNotNullOrUndefined = function(input) {
+	return (undefined !== input || null !== input);
+}

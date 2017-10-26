@@ -1,5 +1,7 @@
 package com.erstegroup.lio.dto;
 
+import java.util.List;
+
 public class JobSchedulerDTO {
 
 	private String jobGroupName;
@@ -7,7 +9,7 @@ public class JobSchedulerDTO {
 	private String dependentjobName;
 	private String isCritical;
 	private String isSkip;
-	private String scheduleOn;
+	private List<String> scheduleOn;
 	private String scheduleAt;
 	private String inboundQueue;
 	private String outboundQueue;
@@ -54,11 +56,11 @@ public class JobSchedulerDTO {
 		this.isSkip = isSkip;
 	}
 
-	public String getScheduleOn() {
+	public List<String> getScheduleOn() {
 		return scheduleOn;
 	}
 
-	public void setScheduleOn(String scheduleOn) {
+	public void setScheduleOn(List<String> scheduleOn) {
 		this.scheduleOn = scheduleOn;
 	}
 
